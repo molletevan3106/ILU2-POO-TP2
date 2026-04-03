@@ -19,11 +19,10 @@ public class BoundaryAcheterProduit {
 		int quantiteAcheter = 0;
 		String nomVendeur;
 		int quantiteVendeur;
-		boolean acheterProduit = true;
 		if (!controlAcheterProduit.isHabitant(nomAcheteur)) {
 			System.out.println("Je suis désolé " + nomAcheteur
 					+ " mais il faut être un habitant de notre village pour commercer ici.");
-			return acheterProduit=false;
+			return false;
 
 		} else {
 			produit = Clavier.entrerChaine("Quel produit voulez-vous acheter ?");
@@ -40,16 +39,17 @@ public class BoundaryAcheterProduit {
 				if (!controlAcheterProduit.isHabitant(nomVendeur)) {
 					System.out.println("Je suis désolé " + nomVendeur
 							+ " mais il faut être un habitant de notre village pour commercer ici.");
-					return acheterProduit=false;
+					return false;
 				}
 				System.out.println("Panoramix se déplace jusqu'à l'étal du vendeur Bonemine");
 				System.out.println("Bonjour " + nomAcheteur);
 				quantiteAcheter = Clavier.entrerEntier("Combien de fleurs voulez-vous acheter ?");
 				quantiteVendeur = controlAcheterProduit.acheterProduit(quantiteAcheter, gaulois[numVendeur - 1]);
 				if (quantiteVendeur == 0) {
-					acheterProduit = false;
+					;
 					System.out.println(nomAcheteur + " veut acheter " + quantiteAcheter + " " + produit
 							+ ", malheureusement il n’y en a plus !");
+					return false;
 				} else if (quantiteVendeur < quantiteAcheter) {
 					System.out.println(nomAcheteur + " veut acheter " + quantiteAcheter + " " + produit
 							+ ", malheureusement " + nomVendeur + " n’en a plus que " + quantiteVendeur + ". "
@@ -62,6 +62,6 @@ public class BoundaryAcheterProduit {
 
 			}
 		}
-		return acheterProduit;
+		return true;
 	}
 }
