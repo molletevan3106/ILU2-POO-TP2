@@ -20,13 +20,14 @@ public class ControlPrendreEtal {
 	}
 
 	public int prendreEtal(String nomVendeur, String produit, int nbProduit) {
-		int numeroEtal = -1;
-		Gaulois gaulois=null;
-		gaulois=village.trouverHabitant(nomVendeur);
-		numeroEtal=village.installerVendeur(gaulois, produit, nbProduit);
-		return numeroEtal;
-	}
+	    Gaulois gaulois = village.trouverHabitant(nomVendeur);
 
+	    if (gaulois == null) {
+	        return -1;
+	    }
+
+	    return village.installerVendeur(gaulois, produit, nbProduit);
+	}
 	public boolean verifierIdentite(String nomVendeur) {
 		boolean nomVendeurConnu;
 		nomVendeurConnu=controlVerifierIdentite.verifierIdentite(nomVendeur);
