@@ -9,6 +9,7 @@ public class ControlAcheterProduit {
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
 	private ControlVerifierIdentite controlVerifierIdentite;
 
+	
 	public ControlAcheterProduit(ControlVerifierIdentite controlVerifierIdentite,
 			ControlTrouverEtalVendeur controlTrouverEtalVendeur,
 			Village village) {
@@ -26,13 +27,15 @@ public class ControlAcheterProduit {
 		return village.rechercherVendeursProduit(produit);
 	}
 	
-	public int acheterProduit(int quantite,Gaulois vendeur) {
-		Etal etalVendeur=null;
-		int quantiteAcheter=0;
-		etalVendeur=village.rechercherEtal(vendeur);
-		if(etalVendeur!=null) {
-			quantiteAcheter=etalVendeur.acheterProduit(quantite);
-		}
-		return quantiteAcheter;
+	public int acheterProduit( String vendeur,int quantite) {
+	    Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(vendeur);
+
+	    int quantiteAcheter = 0;
+
+	    if (etalVendeur != null) {
+	        quantiteAcheter = etalVendeur.acheterProduit(quantite);
+	    }
+
+	    return quantiteAcheter;
 	}
 }

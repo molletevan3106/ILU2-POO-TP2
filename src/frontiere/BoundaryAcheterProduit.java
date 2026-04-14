@@ -1,9 +1,9 @@
 package frontiere;
 
-import java.util.Iterator;
-
 import controleur.ControlAcheterProduit;
 import personnages.Gaulois;
+
+//TODO pa d'entité dans une frontière
 
 public class BoundaryAcheterProduit {
 	private ControlAcheterProduit controlAcheterProduit;
