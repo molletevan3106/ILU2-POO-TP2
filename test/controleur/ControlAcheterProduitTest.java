@@ -72,7 +72,7 @@ class ControlAcheterProduitTest {
 
         Etal etal = village.rechercherEtal(vendeur);
 
-        int qte = control.acheterProduit(5, vendeur);
+        int qte = control.acheterProduit(vendeur.getNom(),5);
 
         assertTrue(qte >= 0);
         assertNotNull(etal);
@@ -80,7 +80,7 @@ class ControlAcheterProduitTest {
 
     @Test
     void testAcheterProduit_pasDEtal() {
-        int qte = control.acheterProduit(5, vendeur);
+        int qte = control.acheterProduit(vendeur.getNom(),5);
 
         assertEquals(0, qte);
     }

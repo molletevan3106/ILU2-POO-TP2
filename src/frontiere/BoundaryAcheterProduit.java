@@ -44,7 +44,7 @@ public class BoundaryAcheterProduit {
 				System.out.println("Panoramix se déplace jusqu'à l'étal du vendeur Bonemine");
 				System.out.println("Bonjour " + nomAcheteur);
 				quantiteAcheter = Clavier.entrerEntier("Combien de fleurs voulez-vous acheter ?");
-				quantiteVendeur = controlAcheterProduit.acheterProduit(quantiteAcheter, gaulois[numVendeur - 1]);
+				quantiteVendeur = controlAcheterProduit.acheterProduit(gaulois[numVendeur - 1].getNom(),quantiteAcheter);
 				if (quantiteVendeur == 0) {
 					;
 					System.out.println(nomAcheteur + " veut acheter " + quantiteAcheter + " " + produit
