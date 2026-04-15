@@ -26,10 +26,10 @@ public class ControlAcheterProduit {
 		return village.rechercherVendeursProduit(produit);
 	}
 	
-	public int acheterProduit(int quantite,Gaulois vendeur) {
+	public int acheterProduit(String vendeur, int quantite) {
 		Etal etalVendeur=null;
 		int quantiteAcheter=0;
-		etalVendeur=village.rechercherEtal(vendeur);
+		etalVendeur=controlTrouverEtalVendeur.trouverEtalVendeur(vendeur);
 		if(etalVendeur!=null) {
 			quantiteAcheter=etalVendeur.acheterProduit(quantite);
 		}
